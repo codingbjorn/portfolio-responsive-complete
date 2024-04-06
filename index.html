@@ -168,11 +168,9 @@
     <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.14.0"></script>
     <script>
-      // Initialize the Supabase client correctly
-      const supabaseUrl = 'https://jicxdxynihuqymidjeil.supabase.co';
-      const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppY3hkeHluaWh1cXltaWRqZWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTIzNDAxNDIsImV4cCI6MjAyNzkxNjE0Mn0.fz1kyh-LRSGweN92s8be3YcoRhmV_oS3varuSwfp91s';
-      const supabase = createClient(supabaseUrl, supabaseAnonKey);
-    
+      const supabaseUrl = 'https://jicxdxynihuqymidjeil.supabase.co'
+      const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppY3hkeHluaWh1cXltaWRqZWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTIzNDAxNDIsImV4cCI6MjAyNzkxNjE0Mn0.fz1kyh-LRSGweN92s8be3YcoRhmV_oS3varuSwfp91s'
+      const supabase = createClient(supabaseUrl, supabaseAnonKey)
       // Listen for form submission
       document.getElementById('contact-form').addEventListener('submit', async function(event) {
         // Prevent the form from submitting the default way
