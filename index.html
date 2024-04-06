@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Portfolio website complete</title>
+    <title>Contact Form with Supabase</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.28.5"></script>
 </head>
 <body>
     <!--===== HEADER =====-->
@@ -166,39 +167,37 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <!--===== MAIN JS =====-->
     <script src="assets/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@latest"></script>
-<script>
-  // Ensure Supabase client is initialized outside of any event listener
-  const supabaseUrl = 'https://jicxdxynihuqymidjeil.supabase.co';
-  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppY3hkeHluaWh1cXltaWRqZWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTIzNDAxNDIsImV4cCI6MjAyNzkxNjE0Mn0.fz1kyh-LRSGweN92s8be3YcoRhmV_oS3varuSwfp91s'; // Replace with your actual Supabase anon key
+    <script>
+        // Correct initialization of the Supabase client
+        const supabaseUrl = 'https://jicxdxynihuqymidjeil.supabase.co';
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppY3hkeHluaWh1cXltaWRqZWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTIzNDAxNDIsImV4cCI6MjAyNzkxNjE0Mn0.fz1kyh-LRSGweN92s8be3YcoRhmV_oS3varuSwfp91s'; // Replace with your actual Supabase anon key
 
-  // Initialize the Supabase client
-  const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+        const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-  document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('contact-form').addEventListener('submit', async function(event) {
-      event.preventDefault();
-      
-      const formData = new FormData(event.target);
-      const formProps = Object.fromEntries(formData);
-      
-      const { data, error } = await supabase
-        .from('contacts')
-        .insert([{
-          Name: formProps.name,
-          Email: formProps.email,
-          Message: formProps.message
-        }]);
-      
-      if (error) {
-        console.error('Error submitting form to Supabase', error);
-      } else {
-        console.log('Form submitted successfully', data);
-        // Optionally, clear the form or show a success message
-      }
-    });
-  });
-</script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('contact-form').addEventListener('submit', async function(event) {
+                event.preventDefault();
+                
+                const formData = new FormData(event.target);
+                const formProps = Object.fromEntries(formData);
+                
+                const { data, error } = await supabase
+                    .from('contacts')
+                    .insert([{
+                        Name: formProps.name,
+                        Email: formProps.email,
+                        Message: formProps.message
+                    }]);
+                
+                if (error) {
+                    console.error('Error submitting form to Supabase', error);
+                } else {
+                    console.log('Form submitted successfully', data);
+                    // Optionally, clear the form or show a success message
+                }
+            });
+        });
+    </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('contact-btn').addEventListener('click', function(e) {
