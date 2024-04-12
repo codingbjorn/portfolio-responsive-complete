@@ -175,7 +175,7 @@
     <script>
         // Correct initialization of the Supabase client
         const supabaseUrl = 'https://jicxdxynihuqymidjeil.supabase.co';
-        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppY3hkeHluaWh1cXltaWRqZWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTIzNDAxNDIsImV4cCI6MjAyNzkxNjE0Mn0.fz1kyh-LRSGweN92s8be3YcoRhmV_oS3varuSwfp91s'; // Replace with your actual Supabase anon key
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppY3hkeHluaWh1cXltaWRqZWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTIzNDAxNDIsImV4cCI6MjAyNzkxNjE0Mn0.fz1kyh-LRSGweN92s8be3YcoRhmV_oS3varuSwfp91s'
 
         const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
@@ -189,9 +189,9 @@
                 const { data, error } = await supabase
                     .from('contacts')
                     .insert([{
-                        Name: formProps.Name,
-                        Email: formProps.Email,
-                        Message: formProps.Message
+                        Name: formProps.name,
+                        Email: formProps.email,
+                        Message: formProps.message
                     }]);
                 
                 if (error) {
